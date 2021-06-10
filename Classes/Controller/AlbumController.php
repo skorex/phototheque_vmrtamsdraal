@@ -38,7 +38,7 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function listAction()
     {
-        $albums = $this->albumsRepository->findAll();
+        $albums = $this->albumRepository->findAll();
         $this->view->assign('albums', $albums);
     }
 
@@ -50,7 +50,7 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Model\Album $album)
     {
-        $this->view->assign('albums', $albums);
+        $this->view->assign('albums', $album);
     }
 
     /**
@@ -68,6 +68,6 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function injectAlbumRepository(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\AlbumRepository $albumRepository)
     {
-        $this->albumsRepository = $albumsRepository;
+        $this->albumRepository = $albumRepository;
     }
 }
