@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<label for="title">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.title" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="title" /><br />
+<label for="description">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.description" />
+</label><br />
+	<f:form.textarea property="description" cols="40" rows="15" /><br />
+<label for="file">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.file" /> <span class="required">(required)</span>
+</label><br />
+	<span>File upload is not implemented!</span><br  /><br />
+<label for="shootingDate">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.shooting_date" /> <span class="required">(required)</span>
+</label><br />
+	<f:form.textfield property="shootingDate" value="{photo.shootingDate->f:format.date()}" /><br />
+<label for="author">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.author" />
+</label><br />
+	<f:form.textfield property="author" /><br />
+<label for="place">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.place" />
+</label><br />
+	<f:form.textfield property="place" /><br />
+<label for="models">
+	<f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.models" />
+</label><br />
+	<f:form.textarea property="models" cols="40" rows="15" /><br />
+</html>

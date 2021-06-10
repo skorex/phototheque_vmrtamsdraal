@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="tx-phototheque-vmrtamsdraal" >
+	<tr>
+		<td>
+			<f:translate key="tx_photothequevmrtamsdraal_domain_model_albums.title" />
+		</td>
+		<td>
+		{albums.title}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_photothequevmrtamsdraal_domain_model_albums.description" />
+		</td>
+		<td>
+		{albums.description}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_photothequevmrtamsdraal_domain_model_albums.shooting_date" />
+		</td>
+		<td>
+		{albums.shootingDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_photothequevmrtamsdraal_domain_model_albums.thumbmail" />
+		</td>
+		<td>
+				<f:image src="{albums.thumbmail.originalResource.publicUrl}" width="200"/>
+		</td>
+	</tr>
+</table>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:phototheque_vmrtamsdraal/Resources/Private/Language/locallang_csh" date="2021-06-10T10:17:11Z" product-name="phototheque_vmrtamsdraal">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>titre</source>
+			</trans-unit>
+			<trans-unit id="color.description" resname="color.description">
+				<source>couleur</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

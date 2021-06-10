@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:phototheque_vmrtamsdraal/Resources/Private/Language/locallang_csh" date="2021-06-10T10:17:11Z" product-name="phototheque_vmrtamsdraal">
+		<header/>
+		<body>
+			<trans-unit id="title.description" resname="title.description">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="description.description" resname="description.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="file.description" resname="file.description">
+				<source>Fichier</source>
+			</trans-unit>
+			<trans-unit id="shooting_date.description" resname="shooting_date.description">
+				<source>Date de prise de vue</source>
+			</trans-unit>
+			<trans-unit id="author.description" resname="author.description">
+				<source>Auteur</source>
+			</trans-unit>
+			<trans-unit id="place.description" resname="place.description">
+				<source>Lieu</source>
+			</trans-unit>
+			<trans-unit id="models.description" resname="models.description">
+				<source>Sujets</source>
+			</trans-unit>
+			<trans-unit id="tags.description" resname="tags.description">
+				<source>tag list</source>
+			</trans-unit>
+			<trans-unit id="comments.description" resname="comments.description">
+				<source>commentaire list</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

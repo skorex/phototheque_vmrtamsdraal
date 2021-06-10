@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:phototheque_vmrtamsdraal/Resources/Private/Language/locallang" date="2021-06-10T10:17:11Z" product-name="phototheque_vmrtamsdraal">
+		<header/>
+		<body>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo" resname="tx_photothequevmrtamsdraal_domain_model_photo">
+				<source>Photo</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.title" resname="tx_photothequevmrtamsdraal_domain_model_photo.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.description" resname="tx_photothequevmrtamsdraal_domain_model_photo.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.file" resname="tx_photothequevmrtamsdraal_domain_model_photo.file">
+				<source>File</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.shooting_date" resname="tx_photothequevmrtamsdraal_domain_model_photo.shooting_date">
+				<source>Shooting Date</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.author" resname="tx_photothequevmrtamsdraal_domain_model_photo.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.place" resname="tx_photothequevmrtamsdraal_domain_model_photo.place">
+				<source>Place</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.models" resname="tx_photothequevmrtamsdraal_domain_model_photo.models">
+				<source>Models</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.tags" resname="tx_photothequevmrtamsdraal_domain_model_photo.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_photo.comments" resname="tx_photothequevmrtamsdraal_domain_model_photo.comments">
+				<source>Comments</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album" resname="tx_photothequevmrtamsdraal_domain_model_album">
+				<source>Album</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album.title" resname="tx_photothequevmrtamsdraal_domain_model_album.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album.description" resname="tx_photothequevmrtamsdraal_domain_model_album.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album.shooting_date" resname="tx_photothequevmrtamsdraal_domain_model_album.shooting_date">
+				<source>Shooting Date</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album.thumbmail" resname="tx_photothequevmrtamsdraal_domain_model_album.thumbmail">
+				<source>Thumbmail</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_album.photos" resname="tx_photothequevmrtamsdraal_domain_model_album.photos">
+				<source>Photos</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_tag" resname="tx_photothequevmrtamsdraal_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_tag.title" resname="tx_photothequevmrtamsdraal_domain_model_tag.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_tag.color" resname="tx_photothequevmrtamsdraal_domain_model_tag.color">
+				<source>Color</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_comment" resname="tx_photothequevmrtamsdraal_domain_model_comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_comment.author" resname="tx_photothequevmrtamsdraal_domain_model_comment.author">
+				<source>Author</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_comment.content" resname="tx_photothequevmrtamsdraal_domain_model_comment.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_comment.mark" resname="tx_photothequevmrtamsdraal_domain_model_comment.mark">
+				<source>Mark</source>
+			</trans-unit>
+			<trans-unit id="tx_photothequevmrtamsdraal_domain_model_comment.date" resname="tx_photothequevmrtamsdraal_domain_model_comment.date">
+				<source>Date</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

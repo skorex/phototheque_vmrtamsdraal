@@ -1,0 +1,47 @@
+{
+    "name": "phototheque-v-m-r-t-a-m-s-b-r-a-a-l/phototheque-vmrtamsdraal",
+    "type": "typo3-cms-extension",
+    "description": "projet de phototh\u00e8que DAWIN 2020-2021",
+    "authors": [
+        {
+            "name": "Valentin MOREL",
+            "role": "Developer"
+        },
+        {
+            "name": "Romain TALON",
+            "role": "Developer"
+        },
+        {
+            "name": "Simon BOTTE",
+            "role": "Developer"
+        },
+        {
+            "name": "Axel MORICEAU",
+            "role": "Developer"
+        },
+        {
+            "name": "ROMAIN ANGIER",
+            "role": "Developer"
+        },
+        {
+            "name": "Lauranne APERS",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhotothequeVMRTAMSBRAAL\\PhotothequeVmrtamsdraal\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhotothequeVMRTAMSBRAAL\\PhotothequeVmrtamsdraal\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "typo3-ter/phototheque-vmrtamsdraal": "self.version"
+    }
+}
