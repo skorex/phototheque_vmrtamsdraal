@@ -8,6 +8,7 @@
 				<type>array</type>
 				<el>
 					<switchableControllerActions>
+					
 						<TCEforms>
 							<label>Select function</label>
 							<config>
@@ -21,6 +22,15 @@
 							</config>
 						</TCEforms>
 					</switchableControllerActions>
+					<settings.itemsPerPage>
+						<TCEforms>
+							<label>Nombre de photos par pages</label>
+							<config>
+								<type>input</type>
+								<size>2</size>
+							</config>
+						</TCEforms>
+					</settings.itemsPerPage>
 				</el>
 			</ROOT>
 		</sDEF>

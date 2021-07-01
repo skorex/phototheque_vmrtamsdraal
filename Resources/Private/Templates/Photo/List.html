@@ -97,64 +97,74 @@
         <f:flashMessages />
 
         <div class="photos">
-            <f:for each="{photos}" as="photo">
-                <div class="photo">
-                    <div class="photo__image">
-                        <f:link.action
-                            action="show"
-                            arguments="{photo : photo}"
-                        >
-                            <img
-                                src="{photo.file.originalResource.publicUrl}"
-                                alt="{photo.file.originalResource.description}"
-                            />
-                        </f:link.action>
-                    </div>
-                    <div class="photo__shootingDate">
-                        <f:link.action action="show" arguments="{photo : photo}"
-                            >{photo.shootingDate ->
-                            f:format.date()}</f:link.action
-                        >
-                    </div>
-                    <div class="photo__container">
-                        <div class="photo__title">
-                            <h3>
-                                <f:link.action
-                                    action="show"
-                                    arguments="{photo : photo}"
-                                    >{photo.title}</f:link.action
-                                >
-                            </h3>
+            <f:widget.paginate
+                objects="{photos}"
+                as="paginatedphotos"
+                configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1}"
+            >
+                <f:for each="{paginatedphotos}" as="photo">
+                    <div class="photo">
+                        <div class="photo__image">
+                            <f:link.action
+                                action="show"
+                                arguments="{photo : photo}"
+                            >
+                                <img
+                                    src="{photo.file.originalResource.publicUrl}"
+                                    alt="{photo.file.originalResource.description}"
+                                />
+                            </f:link.action>
                         </div>
-                        <div class="photo__tags">
-                            <f:for each="{photo.tags}" as="tag">
-                                <div class="photo__tag">
-                                    <span>{tag.title}</span>
+                        <div class="photo__shootingDate">
+                            <f:link.action
+                                action="show"
+                                arguments="{photo : photo}"
+                                >{photo.shootingDate ->
+                                f:format.date()}</f:link.action
+                            >
+                        </div>
+                        <div class="photo__container">
+                            <div class="photo__title">
+                                <h3>
+                                    <f:link.action
+                                        action="show"
+                                        arguments="{photo : photo}"
+                                        >{photo.title}</f:link.action
+                                    >
+                                </h3>
+                            </div>
+                            <div class="photo__tags">
+                                <f:for each="{photo.tags}" as="tag">
+                                    <div class="photo__tag">
+                                        <span>{tag.title}</span>
+                                    </div>
+                                </f:for>
+                            </div>
+                            <div class="photo__dataRow">
+                                <div class="photo__place">
+                                    <span>Place :</span>
+                                    <span>{photo.place }</span>
                                 </div>
-                            </f:for>
-                        </div>
-                        <div class="photo__dataRow">
-                            <div class="photo__place">
-                                <span>Place :</span>
-                                <span>{photo.place }</span>
+                                <div class="photo__shooter">
+                                    <span>Photographer :</span>
+                                    <span>{photo.author}</span>
+                                </div>
                             </div>
-                            <div class="photo__shooter">
-                                <span>Photographer :</span>
-                                <span>{photo.author}</span>
-                            </div>
-                        </div>
-                        <div class="photo__descriptionContainer">
-                            <div class="photo__description">
-                                <f:format.raw>{photo.description}</f:format.raw>
-                            </div>
+                            <div class="photo__descriptionContainer">
+                                <div class="photo__description">
+                                    <f:format.raw
+                                        >{photo.description}</f:format.raw
+                                    >
+                                </div>
 
-                            <div class="photo__model">
-                                <p>{photo.models}</p>
+                                <div class="photo__model">
+                                    <p>{photo.models}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </f:for>
+                </f:for>
+            </f:widget.paginate>
         </div>
 
         <!-- <f:link.action action="new">New Photo</f:link.action>-->
