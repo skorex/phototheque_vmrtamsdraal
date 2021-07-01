@@ -17,6 +17,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
     <f:flashMessages />
     <f:render partial="Tag/Properties" arguments="{tag:tag}" />
+
+    <f:for each="{photos}" as="photo">
+      <li><f:link.action action="show" arguments="{photo : photo}">{photo.title}</f:link.action></li>
+    </f:for>
+    
     <f:link.action action="list">Back to list</f:link.action><br />
     <f:link.action action="new">New Tag</f:link.action>
 </f:section>

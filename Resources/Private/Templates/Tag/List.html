@@ -16,25 +16,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h1>Listing for Tag</h1>
 
     <f:flashMessages />
-
-    <table  class="tx_photothequevmrtamsdraal" >
-        <tr>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_tag.title" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_tag.color" /></th>
-            <th> </th>
-            <th> </th>
-        </tr>
-
         <f:for each="{tags}" as="tag">
-            <tr>
-                <td><f:link.action action="show" arguments="{tag : tag}">{tag.title}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{tag : tag}">{tag.color}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{tag : tag}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{tag : tag}">Delete</f:link.action></td>
-            </tr>
+                <span class="tag tag-primary"><f:link.action action="show" arguments="{tag : tag}">{tag.title}</f:link.action></span>
+                <span class="tag tag-default"><f:link.action action="show" arguments="{tag : tag}">{tag.color}</f:link.action></span>
         </f:for>
-    </table>
 
-    <f:link.action action="new">New Tag</f:link.action>
 </f:section>
 </html>

@@ -1,6 +1,6 @@
 <?php
 namespace PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository;
-
+use PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Model\Tag;
 
 /***
  *
@@ -22,4 +22,9 @@ namespace PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository;
  */
 class PhotoRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    public function findByTag(Tag $tag) {
+        $query = $this->createQuery();
+
+        return $query->matching($query->contains('tags', $tag))->execute();
+    }
 }

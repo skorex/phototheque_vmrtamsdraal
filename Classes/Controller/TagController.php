@@ -39,6 +39,22 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     }
 
     /**
+     * photoRepository
+     * 
+     * @var \PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository
+     */
+    protected $photoRepository = null;
+
+    /**
+     * @param \PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository $photoRepository
+     */
+    public function injectPhotoRepository(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository $photoRepository)
+    {
+        $this->photoRepository = $photoRepository;
+    }
+
+
+    /**
      * action list
      * 
      * @return void
@@ -58,5 +74,7 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function showAction(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Model\Tag $tag)
     {
         $this->view->assign('tag', $tag);
+        $photos = $this->photoRepository->findByTag($tag);
+        $this->view->assign('photos', $photos);
     }
 }
