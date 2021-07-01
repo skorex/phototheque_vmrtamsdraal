@@ -85,25 +85,17 @@
     </style>
     <div class="photo">
         <div class="photo__image">
-            <f:link.action action="show" arguments="{photo : photo}">
-                <img
-                    src="{photo.file.originalResource.publicUrl}"
-                    alt="{photo.file.originalResource.description}"
-                />
-            </f:link.action>
+            <img
+                src="{photo.file.originalResource.publicUrl}"
+                alt="{photo.file.originalResource.description}"
+            />
         </div>
         <div class="photo__shootingDate">
-            <f:link.action action="show" arguments="{photo : photo}"
-                >{photo.shootingDate -> f:format.date()}</f:link.action
-            >
+            {photo.shootingDate -> f:format.date()}
         </div>
         <div class="photo__container">
             <div class="photo__title">
-                <h1>
-                    <f:link.action action="show" arguments="{photo : photo}"
-                        >{photo.title}</f:link.action
-                    >
-                </h1>
+                <h1>{photo.title}</h1>
             </div>
             <div class="photo__tags">
                 <f:for each="{photo.tags}" as="tag">

@@ -21,6 +21,15 @@
 							</config>
 						</TCEforms>
 					</switchableControllerActions>
+					<settings.itemsPerPage>
+						<TCEforms>
+							<label>Nombre d'album par pages</label>
+							<config>
+								<type>input</type>
+								<size>2</size>
+							</config>
+						</TCEforms>
+					</settings.itemsPerPage>
 				</el>
 			</ROOT>
 		</sDEF>
