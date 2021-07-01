@@ -1,50 +1,162 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
+    This Template is responsible for creating a table of domain objects. If you
+    modify this template, do not forget to change the overwrite settings in
+    /Configuration/ExtensionBuilder/settings.yaml: Resources: Private:
+    Templates: List.html: keep Otherwise your changes will be overwritten the
+    next time you save the extension in the extension builder
 
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+    <f:section name="content">
+        <style>
+            .photos {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 10px;
+                row-gap: 10px;
+            }
+            .photo {
+                width: 350px;
+                position: relative;
+            }
+            .photo__image img {
+                width: 100%;
+                height: 225px;
+                object-fit: cover;
+                transition: 300ms ease;
+            }
+            .photo__image {
+                overflow: hidden;
+            }
+            .photo__image:hover img {
+                transform: scale(1.1);
+            }
+            .photo__title h3 {
+                text-align: center;
+            }
 
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+            .photo__tag span {
+                padding: 5px 12.5px;
+                border: 1px solid #75a75a;
+                border-radius: 30px;
+                color: white;
+                background: #75a75a;
+                margin: 0 10px;
+            }
+            .photo__tags {
+                display: flex;
+                justify-content: center;
+            }
+            .photo__tag {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
 
-<f:section name="content">
-    <h1>Listing for Photo</h1>
+            .photo__dataRow > div {
+                display: flex;
+                justify-content: center;
+            }
 
-    <f:flashMessages />
+            .photo__dataRow > div span:first-child {
+                margin-right: 4px;
+            }
 
-    <table  class="tx_photothequevmrtamsdraal" >
-        <tr>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.title" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.description" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.file" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.shooting_date" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.author" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.place" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_photo.models" /></th>
-            <th> </th>
-            <th> </th>
-        </tr>
+            .photo__description,
+            .photo__model {
+                text-align: center;
+            }
 
-        <f:for each="{photos}" as="photo">
-            <tr>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.title}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.description}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.file.originalResource.name}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.shootingDate -> f:format.date()}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.author}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.place}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{photo : photo}">{photo.models}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{photo : photo}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{photo : photo}">Delete</f:link.action></td>
-            </tr>
-        </f:for>
-    </table>
+            .photo__dataRow {
+                margin-bottom: 15px;
+            }
 
-    <f:link.action action="new">New Photo</f:link.action>
-</f:section>
+            .photo__descriptionContainer {
+                display: flex;
+                flex-direction: column;
+            }
+            .photo__descriptionContainer p {
+                margin: 0;
+            }
+            .photo__shootingDate {
+                position: absolute;
+                top: 191px;
+                background: #75a75a;
+                padding: 5px 15px;
+            }
+
+            .photo__shootingDate a {
+                color: white;
+            }
+        </style>
+        <h1>Listing for Photo</h1>
+
+        <f:flashMessages />
+
+        <div class="photos">
+            <f:for each="{photos}" as="photo">
+                <div class="photo">
+                    <div class="photo__image">
+                        <f:link.action
+                            action="show"
+                            arguments="{photo : photo}"
+                        >
+                            <img
+                                src="{photo.file.originalResource.publicUrl}"
+                                alt="{photo.file.originalResource.description}"
+                            />
+                        </f:link.action>
+                    </div>
+                    <div class="photo__shootingDate">
+                        <f:link.action action="show" arguments="{photo : photo}"
+                            >{photo.shootingDate ->
+                            f:format.date()}</f:link.action
+                        >
+                    </div>
+                    <div class="photo__container">
+                        <div class="photo__title">
+                            <h3>
+                                <f:link.action
+                                    action="show"
+                                    arguments="{photo : photo}"
+                                    >{photo.title}</f:link.action
+                                >
+                            </h3>
+                        </div>
+                        <div class="photo__tags">
+                            <f:for each="{photo.tags}" as="tag">
+                                <div class="photo__tag">
+                                    <span>{tag.title}</span>
+                                </div>
+                            </f:for>
+                        </div>
+                        <div class="photo__dataRow">
+                            <div class="photo__place">
+                                <span>Place :</span>
+                                <span>{photo.place }</span>
+                            </div>
+                            <div class="photo__shooter">
+                                <span>Photographer :</span>
+                                <span>{photo.author}</span>
+                            </div>
+                        </div>
+                        <div class="photo__descriptionContainer">
+                            <div class="photo__description">
+                                <f:format.raw>{photo.description}</f:format.raw>
+                            </div>
+
+                            <div class="photo__model">
+                                <p>{photo.models}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+
+        <!-- <f:link.action action="new">New Photo</f:link.action>-->
+    </f:section>
 </html>
