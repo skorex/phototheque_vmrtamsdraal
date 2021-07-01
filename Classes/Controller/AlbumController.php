@@ -50,7 +50,7 @@ class AlbumController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Model\Album $album)
     {
-        $this->view->assign('albums', $album);
+        $this->view->assign('album', $album);
     }
 
     /**
