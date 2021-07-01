@@ -1,44 +1,96 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
+    This Template is responsible for creating a table of domain objects. If you
+    modify this template, do not forget to change the overwrite settings in
+    /Configuration/ExtensionBuilder/settings.yaml: Resources: Private:
+    Templates: List.html: keep Otherwise your changes will be overwritten the
+    next time you save the extension in the extension builder
 
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
+    <f:section name="content">
+        <style>
+            .albums {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 30px;
+            }
 
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+            .album {
+                width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
 
-<f:section name="content">
-    <h1>Listing for Album</h1>
+            .album__background img {
+                width: 100%;
+                height: 350px;
+                object-fit: cover;
+                filter: blur(30px) saturate(2);
+                transform: scale(2) rotate(-15deg);
+            }
 
-    <f:flashMessages />
+            .album__content {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                background-color: rgba(100, 100, 100, 0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-    <table  class="tx_photothequevmrtamsdraal" >
-        <tr>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_album.title" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_album.description" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_album.shooting_date" /></th>
-            <th><f:translate key="tx_photothequevmrtamsdraal_domain_model_album.thumbmail" /></th>
-            <th> </th>
-            <th> </th>
-        </tr>
+            h3.album__title {
+                color: white;
+                font-size: 3rem;
+            }
 
-        <f:for each="{albums}" as="album">
-            <tr>
-                <td><f:link.action action="show" arguments="{album : album}">{album.title}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{album : album}">{album.description}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{album : album}">{album.shootingDate -> f:format.date()}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{album : album}">{album.thumbmail.originalResource.name}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{album : album}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{album : album}">Delete</f:link.action></td>
-            </tr>
-        </f:for>
-    </table>
+            p.album__description {
+                position: absolute;
+                bottom: -50px;
+                color: white;
+                transition: 300ms ease;
+            }
 
-    <f:link.action action="new">New Album</f:link.action>
-</f:section>
+            .album:hover p.album__description {
+                bottom: 50px;
+            }
+        </style>
+
+        <h1>Listing for Album</h1>
+
+        <f:flashMessages />
+        <div class="albums">
+            <f:widget.paginate
+                objects="{albums}"
+                as="paginatedalbums"
+                configuration="{itemsPerPage: settings.itemsPerPage, insertAbove: 0, insertBelow: 1}"
+            >
+                <f:for each="{paginatedalbums}" as="album">
+                    <f:link.action action="show" arguments="{album : album}">
+                        <figure class="album">
+                            <div class="album__background">
+                                <f:image
+                                    image="{album.thumbmail}"
+                                    treatIdAsReference="1"
+                                />
+                            </div>
+                            <figcaption class="album__content">
+                                <h3 class="album__title">{album.title}</h3>
+
+                                <p class="album__description">
+                                    {album.description}
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </f:link.action>
+                </f:for>
+            </f:widget.paginate>
+        </div>
+
+        <f:link.action action="new">New Album</f:link.action>
+    </f:section>
 </html>
