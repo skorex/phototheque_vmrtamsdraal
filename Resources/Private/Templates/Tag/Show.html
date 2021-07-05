@@ -13,10 +13,16 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Single View for Tag</h1>
-
     <f:flashMessages />
     <f:render partial="Tag/Properties" arguments="{tag:tag}" />
+    <div class="tag__photos">
+      <f:for each="{photos}" as="photo">
+        <f:link.action action="show" arguments="{photo : photo}">
+        <img class="tag__photo" src="{photo.file.originalResource.publicUrl}"
+        alt="{photo.file.originalResource.description}">
+      </f:link.action>
+      </f:for>
+    </div>
     <f:link.action action="list">Back to list</f:link.action><br />
     <f:link.action action="new">New Tag</f:link.action>
 </f:section>

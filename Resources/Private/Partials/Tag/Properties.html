@@ -1,20 +1,83 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="tx-phototheque-vmrtamsdraal" >
-	<tr>
-		<td>
-			<f:translate key="tx_photothequevmrtamsdraal_domain_model_tag.title" />
-		</td>
-		<td>
-		{tag.title}
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<f:translate key="tx_photothequevmrtamsdraal_domain_model_tag.color" />
-		</td>
-		<td>
-		{tag.color}
-		</td>
-	</tr>
-</table>
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+    <style>
+        .tag {
+            display: flex;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .tag__image {
+            width: 50%;
+        }
+
+        .tag__image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .tag__shootingDate {
+            position: absolute;
+            background: #75a75a;
+        }
+
+        .tag__shootingDate a {
+            color: white;
+            padding: 5px 10px;
+        }
+
+        .tag__container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .tag__title h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .tag__description {
+            text-align: center;
+        }
+
+        .tag__descriptionContainer {
+            display: flex;
+            flex-direction: column;
+        }
+        .tag__descriptionContainer p {
+            margin: 0;
+        }
+        .tag__photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+        }
+        img.tag__photo {
+            display: block;
+            width: 100%;
+        }
+    </style>
+
+    <div class="tag">
+        <div class="tag__container">
+            <div class="tag__title">
+                <h1>Tag : {tag.title}</h1>
+            </div>
+            <div class="tag__descriptionContainer">
+                <div class="tag__description">
+                    <f:format.raw>{tag.description}</f:format.raw>
+                </div>
+
+                <div class="tag__model">
+                    <p>{tag.models}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>

@@ -31,6 +31,18 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $tagRepository = null;
 
     /**
+     * @var \PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository
+     */
+    protected $photoRepository;
+
+    /**
+     * @param \PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository
+     */
+    public function injectPhotoRepository(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\PhotoRepository $photoRepository) {
+        $this->photoRepository = $photoRepository;
+    }
+
+    /**
      * @param \PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\TagRepository $tagRepository
      */
     public function injectTagRepository(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Repository\TagRepository $tagRepository)
@@ -57,6 +69,13 @@ class TagController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function showAction(\PhotothequeVMRTAMSBRAAL\PhotothequeVmrtamsdraal\Domain\Model\Tag $tag)
     {
+        /* Pas d'image a cause de ca : https://forge.typo3.org/issues/70375 */
+        /* Ramene aucune image */
+        /*$photos = $this->photoRepository->findByTags($tag); */
+
+        /* du coup, on recupere toutes les photos */
+        $photos = $this->photoRepository->findAll();
+        $this->view->assign('photos', $photos);
         $this->view->assign('tag', $tag);
     }
 }
